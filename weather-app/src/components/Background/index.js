@@ -1,19 +1,28 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 
-const Background = () => {
+const Background = ({city}) => {
 
     const [backgroundUrl, setBackgroundUrl] = useState('');
-    const [city, setCity] = useState('London');
+    const [photographer, setPhotographer] = useState('');
+    const [photographerUrl, setPhotographerUrl] = useState('');
+    const [photoUrl, setPhotoUrl] = useState('');
+    const [photoLocation, setPhotoLocation] = useState('');
 
 
     useEffect(() => {
-        async function searchApi(searchString) {
+        async function searchApi(city) {
             try{
                 const result = await axios.get(`https://api.unsplash.com/search/photos/?query=${city}&client_id=${process.env.REACT_APP_UNSPLASH_KEY}`);
-                const randomPhoto = result.data.results[Math.floor(Math.random() * result.data.results.length)].urls.raw;
+                const randomPhoto = result.data.results[Math.floor(Math.random() * result.data.results.length)];
                 console.log(randomPhoto)
-                setBackgroundUrl(randomPhoto);
+                setBackgroundUrl(randomPhoto.urls.full);
+                setPhotographer(randomPhoto.user.name);
+                setPhotographerUrl(randomPhoto.user.links.html);
+                setPhotoUrl(randomPhoto.links.html);
+                //get photo location
+                const location = await axios.get(`https://api.unsplash.com/photos/${randomPhoto.id}?client_id=${process.env.REACT_APP_UNSPLASH_KEY}`)
+                setPhotoLocation(location.data.location.title)
                 
             }catch(err){
                 console.error(err)
@@ -37,6 +46,10 @@ const Background = () => {
       };
     return ( <>
           <div style={divStyle}>
+    </div>
+    <div className='unsplash-description'>
+        <p>{photoLocation}</p>
+        <p><a href={photoUrl} target="_blank" rel='noreferrer'>Photo</a> by <a href={photographerUrl}>{photographer}</a> on <a href='https://unsplash.com/'>Unsplash</a></p>
     </div>
     </> );
 }

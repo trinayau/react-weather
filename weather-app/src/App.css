@@ -86,3 +86,18 @@ button:hover {
   font-weight: 900;
   margin: -20px 0 0 0;
 }
+
+/* unsplash credits*/
+.unsplash-description {
+  font-size: 12px;
+  font-weight: 300;
+  margin: 0;
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+}
+
+.unsplash-description a{
+  color: white;
+}

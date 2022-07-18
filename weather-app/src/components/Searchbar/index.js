@@ -1,8 +1,23 @@
-const Searchbar = () => {
+import { useState } from "react";
+
+const Searchbar = ({setSubmitValue}) => {
+    const [inputValue, setInputValue] = useState("");
+
+
+    function handleInput(e) {
+        const newValue = e.target.value;
+        setInputValue(newValue);
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        setSubmitValue(inputValue)
+        setInputValue("");
+    }
     return ( <>
-        <form>
-         <input type="text" />
-         <button> Submit </button>
+        <form onSubmit={handleSubmit}>
+         <input type="text" onChange={handleInput} value={inputValue}/>
+         <button type="submit"> Submit </button>
        </form>
     </> 
     );

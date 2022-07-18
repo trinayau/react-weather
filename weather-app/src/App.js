@@ -1,13 +1,18 @@
 import './App.css';
-import {Searchbar, Info, Background} from './components';
+import React, { useState } from 'react';
+import {Searchbar, Info, Background, Forecast} from './components';
 
 function App() {
+  const [submitValue, setSubmitValue] = useState("London");
+
   return (
     <div className="App">
       <header className="App-header">
-      <Searchbar/>
-      <Info/>
-      <Background/>
+      <Searchbar setSubmitValue={setSubmitValue}/>
+      <Info city={submitValue}/>
+      <Background city={submitValue}/>
+      <Forecast/>
+
       </header>
     </div>
   );
