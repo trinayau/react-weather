@@ -1,6 +1,8 @@
-const Day = () => {
-    return ( <>
-        
+const Day = ({day, temp}) => {
+    return ( 
+        <>
+    <p>{day}</p>
+    <p>{temp}°C</p>
     </> );
 }
  

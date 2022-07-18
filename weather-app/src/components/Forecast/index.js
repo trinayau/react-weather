@@ -1,17 +1,13 @@
+import {Day} from '../../components'
 const Forecast = () => {
     return ( 
     <>
         {/* weather forecast */}
-        <p>Monday</p>
-        <p>29°C</p>
-        <p>Tuesday</p>
-        <p>25°C</p>
-        <p>Wednesday</p>
-        <p>22°C</p>
-        <p>Thursday</p>
-        <p>21°C</p>
-        <p>Friday</p>
-        <p>27°C</p>
+        <Day day='Monday' temp='27'/>
+        <Day day='Tuesday' temp='23'/>
+        <Day day='Wednesday' temp='24'/>
+        <Day day='Thursday' temp='25'/>
+        <Day day='Friday' temp='28'/>
     </> );
 }
  
