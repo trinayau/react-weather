@@ -9,6 +9,15 @@ body {
   color: white;
 }
 
+h1 {
+  text-align: center;
+  padding-top: 20px;
+}
+
+p {
+  text-align: center;
+}
+
 /* City input form*/
 form {
   text-align: center;
@@ -49,4 +58,31 @@ button:hover {
   background-color: white;
 }
 
+/* Info styles*/
+.info {
+  margin: 70px 0;
+}
 
+.city {
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 7px;
+  margin: 0;
+}
+
+.desc {
+  margin: 0;
+  font-weight: 300;
+}
+
+
+.temp-container {
+  text-align: center;
+  padding-top: 20px;
+}
+.temp {
+
+  font-size: 100px;
+  font-weight: 900;
+  margin: -20px 0 0 0;
+}
