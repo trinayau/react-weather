@@ -36,7 +36,7 @@ a:hover{
 /* City input form*/
 form {
   text-align: center;
-  margin: 20px 0;
+  margin: 30px 0;
   opacity: .6;
   transition: opacity 0.3s ease;
 
@@ -48,7 +48,7 @@ form:hover {
 
 input {
   margin: 0;
-  border-radius: 3px;
+  border-radius: 4px;
   padding: 11px 15px;
   border: none;
   outline: none;
@@ -57,7 +57,7 @@ input {
 
 button {
   margin: 0;
-  border-radius: 3px;
+  border-radius: 4px;
   border: none;
   padding: 11px 10px;
   margin-left: 10px;
@@ -96,7 +96,7 @@ button:hover {
   opacity: .6;
   display: flex;
   flex-direction: column;
-  padding-top: 15px;
+  padding: 15px 5px;
 }
 
 .quote p{
@@ -156,7 +156,7 @@ button:hover {
 .forecast {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .day-forecast {
@@ -177,12 +177,7 @@ button:hover {
 
 @media only screen and (max-width: 390px) {
   .credit p {
-    font-size: 12px;
-    font-weight: 300;
-    position: absolute;
-    left: 1rem;
-    right: 1rem;
-    bottom: -0.3rem;
+    display: none;
   }
 
 

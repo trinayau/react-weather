@@ -8,7 +8,6 @@ const Quote = () => {
         async function getQuote() {
         try {
             const result = await axios.get('https://stoicquotesapi.com/v1/api/quotes/random')
-            console.log(result.data)
             setQuote(result.data.body)
             setAuthor(result.data.author)
         }
@@ -21,7 +20,7 @@ const Quote = () => {
 
     return ( 
         <div className="quote">
-        {quote && <p>{quote}</p>} {author && <p className="author">{author}</p>}
+        {quote && <p style={{padding: "20px"}}>{quote}</p>} {author && <p className="author">{author}</p>}
         </div>
      );
 }

@@ -17,7 +17,7 @@ const Day = ({day, temp}) => {
 
     return ( 
         <div className="day-forecast" style={{ display:"flex", flexDirection:"column", height: "auto" }}>
-    <p>{day}</p>
+    <p style={{ fontWeight:"600"}}>{day}</p>
     <p>{temperature}<a href="/" onClick={showCelsius}>°C</a> | <a href="/" onClick={showFahrenheit}>°F</a></p>
     </div> );
 }
