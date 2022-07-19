@@ -15,7 +15,6 @@ const Background = ({city}) => {
             try{
                 const result = await axios.get(`https://api.unsplash.com/search/photos/?query=${city}&client_id=${process.env.REACT_APP_UNSPLASH_KEY}`);
                 const randomPhoto = result.data.results[Math.floor(Math.random() * result.data.results.length)];
-                console.log(randomPhoto)
                 setBackgroundUrl(randomPhoto.urls.regular);
                 setPhotographer(randomPhoto.user.name);
                 setPhotographerUrl(randomPhoto.user.links.html);

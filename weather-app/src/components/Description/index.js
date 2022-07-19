@@ -1,8 +1,8 @@
-const Description = () => {
+const Description = ({description}) => {
     return ( <>
         <div className="description">
         <div className="descContainer">
-        <p className="desc">Extremely hot weather.</p>
+        <p className="desc">{description}</p>
       </div>
         </div>
     </> );
