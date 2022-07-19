@@ -77,7 +77,7 @@ button:hover {
 
 .degrees {
   position: absolute;
-  top: 9rem;
+  top: 11rem;
 }
 
 .degrees a{
@@ -110,7 +110,7 @@ button:hover {
 
 /* Info styles*/
 .info {
-  margin: 30px 0;
+  margin: 30px 0 10px 0;
 }
 
 .city {
@@ -123,6 +123,7 @@ button:hover {
 .desc {
   margin: 0;
   font-weight: 300;
+  text-transform: capitalize;
 }
 
 
@@ -175,7 +176,7 @@ button:hover {
   color: white; 
 }
 
-@media only screen and (max-width: 390px) {
+@media only screen and (max-width: 400px) {
   .credit p {
     display: none;
   }

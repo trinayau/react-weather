@@ -14,8 +14,8 @@ const Searchbar = ({setSubmitValue, city, setTemperature, setDescription}) => {
             const response = await axios.get(apiUrl);
             console.log(response.data, 'axios data');
             setTemperature(Math.round(response.data.main.temp));
-            const desc= response.data.weather[0].description;
-            setDescription();
+            const desc = response.data.weather[0].description;
+            setDescription(desc);
             }
 
         handleCityQuery(city);
@@ -34,7 +34,7 @@ const Searchbar = ({setSubmitValue, city, setTemperature, setDescription}) => {
     return ( <>
         <form onSubmit={handleSubmit}>
          <input type="text" onChange={handleInput} value={inputValue}/>
-         <button type="submit"> Submit </button>
+         <button type="submit"> Search City </button>
        </form>
     </> 
     );
