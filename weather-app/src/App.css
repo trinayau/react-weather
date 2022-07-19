@@ -58,9 +58,22 @@ button:hover {
   background-color: white;
 }
 
+/* Quote container */
+.quote {
+  text-align: center;
+  opacity: .6;
+  transition: opacity 0.3s ease;
+  padding: 10px 40px;
+  
+}
+
+.author {
+  font-weight: 600;
+}
+
 /* Info styles*/
 .info {
-  margin: 70px 0;
+  margin: 30px 0;
 }
 
 .city {
