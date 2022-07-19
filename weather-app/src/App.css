@@ -1,3 +1,8 @@
+.App{
+  display: flex;
+  flex-direction: column;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -9,6 +14,7 @@ body {
   color: white;
 }
 
+
 h1 {
   text-align: center;
   padding-top: 20px;
@@ -16,6 +22,15 @@ h1 {
 
 p {
   text-align: center;
+}
+
+a{
+  color: white;
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
 }
 
 /* City input form*/
@@ -54,17 +69,39 @@ button {
   background-color: rgb(235,235,235);
 }
 
+
 button:hover {
   background-color: white;
+}
+/* Info component styling */
+
+.degrees {
+  position: absolute;
+  top: 9rem;
+}
+
+.degrees a{
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.degrees a:hover{
+  color: #212121;
 }
 
 /* Quote container */
 .quote {
+  display: block;
   text-align: center;
   opacity: .6;
-  transition: opacity 0.3s ease;
-  padding: 10px 40px;
-  
+  display: flex;
+  flex-direction: column;
+  padding-top: 15px;
+}
+
+.quote p{
+  margin: 0;
+  padding: 0;
 }
 
 .author {
@@ -106,13 +143,24 @@ button:hover {
   font-weight: 300;
   margin: 0;
   position: absolute;
-  bottom: 1rem;
+  bottom: 0.5rem;
   left: 1rem;
   right: 1rem;
 }
 
 .unsplash-description a{
   color: white;
+}
+
+/* forecast */
+.forecast {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.day-forecast {
+  margin: 0 5px;
 }
 
 /* credit */
@@ -127,7 +175,7 @@ button:hover {
   color: white; 
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 390px) {
   .credit p {
     font-size: 12px;
     font-weight: 300;
@@ -136,4 +184,23 @@ button:hover {
     right: 1rem;
     bottom: -0.3rem;
   }
+
+
 }
+
+/* @media only screen and (max-height: 760px)
+{
+
+
+  .credit p {
+    display: none;
+  }
+
+  .quote {
+    display: none;
+  }
+
+.unsplash-description {
+  display: none;
+}
+} */

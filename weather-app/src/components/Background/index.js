@@ -35,14 +35,16 @@ const Background = ({city}) => {
         color: 'blue',
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.85)), url(${backgroundUrl})`,
         backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
+        backgroundRepeat: "repeat",
         backgroundPosition: "center center",
         position: "absolute",
         top: 0,
         left: 0,
         zIndex: -100,
         width: "100%",
-        height: "100%"
+        height: "100%",
+        padding: 0,
+        margin: 0,
       };
     return ( <>
           <div style={divStyle}>

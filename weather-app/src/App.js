@@ -9,10 +9,10 @@ function App() {
     <div className="App">
       <Searchbar setSubmitValue={setSubmitValue}/>
      
-      <Info city={submitValue}/>
-      <Background city={submitValue}/>
+      <Info city={submitValue} temp={40}/>
       <Forecast/>
       <Quote/>
+      <Background city={submitValue}/>
       <Credit/>
 
     </div>
