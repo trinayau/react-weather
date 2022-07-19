@@ -108,9 +108,19 @@ button:hover {
   font-weight: 300;
   position: absolute;
   left: 1rem;
-  right: 1rem;
   bottom: -0.3rem;
 }
 .credit a{
   color: white; 
+}
+
+@media only screen and (max-width: 600px) {
+  .credit p {
+    font-size: 12px;
+    font-weight: 300;
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    bottom: -0.3rem;
+  }
 }

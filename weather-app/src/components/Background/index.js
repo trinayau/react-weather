@@ -49,7 +49,7 @@ const Background = ({city}) => {
     </div>
     <div className='unsplash-description'>
         <p>{photoLocation}</p>
-        <p><a href={photoUrl} target="_blank" rel='noreferrer'>Photo</a> by <a href={photographerUrl}>{photographer}</a> on <a href='https://unsplash.com/'>Unsplash</a></p>
+        <p><a href={photoUrl} target="_blank" rel='noreferrer'>Photo</a> / <a href={photographerUrl}>{photographer}</a> / <a href='https://unsplash.com/'>Unsplash</a></p>
     </div>
     </> );
 }
