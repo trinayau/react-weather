@@ -58,7 +58,7 @@ if (weatherData.ready !== false) {
         <div className="description">
         <div className="descContainer">
         <p>{finalDay}</p>
-        <p>{localTime} GMT+1</p>
+        <p>{localTime}</p>
         <WeatherIcon code={weatherData.icon} size={100}/>
         <p className="desc">{weatherData.description}</p>
         
