@@ -99,7 +99,7 @@ button:hover {
   flex-direction: column;
   padding: 15px 5px;
   position: absolute;
-  top: 75%;
+  top: 78%;
   left: 15%;
   right: 15%;
 }
@@ -130,6 +130,7 @@ button:hover {
   margin: 0;
   font-weight: 300;
   text-transform: capitalize;
+  margin-bottom: 20px;
 }
 
 .descContainer > canvas {
@@ -139,7 +140,7 @@ button:hover {
   padding: 5px;
   margin-left: auto;
   margin-right: auto;
-  width: 4%;
+  width: 3.5%;
   border-radius: 50%;
   opacity: .8;
 }
@@ -178,6 +179,7 @@ button:hover {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  padding: 0 150px;
 }
 
 .day-forecast {
@@ -190,7 +192,7 @@ button:hover {
   padding: 5px;
   margin-left: auto;
   margin-right: auto;
-  width: 15%;
+  width: 28%;
   border-radius: 50%;
   opacity: .8;
 }
@@ -218,7 +220,15 @@ button:hover {
   }
 
   .quote {
-    top: 60%;
+    top: 72%;
+  }
+
+  .day-forecast > canvas{
+    width: 50%;
+  }
+
+  .forecast {
+    padding: 10px;
   }
 
 
@@ -240,6 +250,15 @@ button:hover {
     
       .quote {
         top: 65%;
+      }
+    
+
+      .day-forecast > canvas{
+        width: 40%;
+      }
+    
+      .forecast {
+        padding: 10px;
       }
     
      }

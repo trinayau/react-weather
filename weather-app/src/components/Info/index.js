@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 import BounceLoader from 'react-spinners/BounceLoader';
-import { CSSProperties } from 'react';
 
-const Info = ({city, weatherData}) => {
+const Info = ({city, weatherData, setUnit}) => {
 
-    const [unit, setUnit] = useState("Metric");
+   
     const [cityTemp, setCityTemp] = useState(weatherData.temperature)
 
     useEffect(() => {

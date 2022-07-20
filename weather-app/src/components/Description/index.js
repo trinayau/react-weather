@@ -33,7 +33,6 @@ if (weatherData.ready !== false) {
     
     axios(config)
     .then(function (response) {
-      console.log(response.data)
       if (response.data.timeZoneId != null) {
         const offsets = response.data.dstOffset * 1000 + response.data.rawOffset * 1000 // get DST and time zone offsets in milliseconds
         const localTime = new Date(timestamp * 1000 + offsets) // apply offsets to convert to local time
@@ -60,8 +59,9 @@ if (weatherData.ready !== false) {
         <div className="descContainer">
         <p>{finalDay}</p>
         <p>{localTime} GMT+1</p>
-        <p className="desc">{weatherData.description}</p>
         <WeatherIcon code={weatherData.icon} size={100}/>
+        <p className="desc">{weatherData.description}</p>
+        
       </div>
         </div>
     </> );

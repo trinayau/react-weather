@@ -3,37 +3,42 @@ import { useEffect, useState } from 'react';
 import PulseLoader from 'react-spinners/PulseLoader';
 
 import {Day} from '../../components'
-const Forecast = ({weatherData}) => {
+const Forecast = ({weatherData, unit}) => {
+    const [loaded, setLoaded] = useState(false);
+    const [forecastData, setForecastData] = useState([]);
 
     const override = {
         display: "block",
         margin: "0 auto",
         borderColor: "red",
       };
+      
 
-    // useEffect(() => {
-    //     const getForecast = async () => {
-    //         const apiKey = process.env.REACT_APP_OPENWEATHER_KEY
-    //         let units = "metric";
-    //         let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${weatherData.coord.lat}&lon=${weatherData.coord.lon}&units=${units}&appid=${apiKey}`;
-    //         const response = await axios.get(apiUrl);
-    //         const forecast = response.data.list;
-    //        console.log(response, 'forecast')
-    //     }
-    //     getForecast();
+    useEffect(() => {
+        const getForecast = async () => {
+            const apiKey = process.env.REACT_APP_OPENWEATHER_KEY
+            let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${weatherData.coord.lat}&lon=${weatherData.coord.lon}&units=${unit}&appid=${apiKey}`;
+            const response = await axios.get(apiUrl);
+            setForecastData(response.data.daily);
+            setLoaded(true);
+           console.log(response.data.daily, 'forecast')
+        }
+        getForecast();
 
         
-    // }, []);
+    }, [weatherData, unit]);
 
-    if (weatherData.ready !== false) {
+    if (loaded === true) {
     return ( 
     <div className="forecast">
         {/* weather forecast */}
-        <Day day='Mon' temp='27' icon="01d"/>
-        <Day day='Tue' temp='23' icon="01d"/>
-        <Day day='Wed' temp='24' icon="01d"/>
-        <Day day='Thu' temp='20' icon="01d"/>
-        <Day day='Fri' temp='20' icon="01d"/>
+        {forecastData.map(function (day, index) {
+            if (index < 5) {
+                return <Day key={index} data={day} index={index}/>
+            } else {
+                return null;
+            }
+        })}
     </div> );
     } else {
         return <PulseLoader loading={true} color={"#ffffff"} cssOverride={override}/>

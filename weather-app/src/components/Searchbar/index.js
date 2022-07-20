@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import dayjs from 'dayjs';
-import customParseFormat from "dayjs/plugin/customParseFormat";
 import axios from "axios";
 
 const Searchbar = ({setSubmitValue, city, setWeatherData}) => {
