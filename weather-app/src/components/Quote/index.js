@@ -20,7 +20,7 @@ const Quote = () => {
 
     return ( 
         <div className="quote">
-        {quote && <p style={{padding: "20px"}}>{quote}</p>} {author && <p className="author">{author}</p>}
+        {quote && <p style={{padding: "20px"}}>{quote}</p>} {author && <p className="author">—{author}</p>}
         </div>
      );
 }
