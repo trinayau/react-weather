@@ -10,25 +10,25 @@ const Background = ({city}) => {
     const [photoLocation, setPhotoLocation] = useState('');
 
 
-    useEffect(() => {
-        async function searchApi(city) {
-            try{
-                const result = await axios.get(`https://api.unsplash.com/search/photos/?query=${city}&client_id=${process.env.REACT_APP_UNSPLASH_KEY}`);
-                const randomPhoto = result.data.results[Math.floor(Math.random() * result.data.results.length)];
-                setBackgroundUrl(randomPhoto.urls.regular);
-                setPhotographer(randomPhoto.user.name);
-                setPhotographerUrl(randomPhoto.user.links.html);
-                setPhotoUrl(randomPhoto.links.html);
-                //get photo location
-                const location = await axios.get(`https://api.unsplash.com/photos/${randomPhoto.id}?client_id=${process.env.REACT_APP_UNSPLASH_KEY}`)
-                setPhotoLocation(location.data.location.title)
+    // useEffect(() => {
+    //     async function searchApi(city) {
+    //         try{
+    //             const result = await axios.get(`https://api.unsplash.com/search/photos/?query=${city}&client_id=${process.env.REACT_APP_UNSPLASH_KEY}`);
+    //             const randomPhoto = result.data.results[Math.floor(Math.random() * result.data.results.length)];
+    //             setBackgroundUrl(randomPhoto.urls.regular);
+    //             setPhotographer(randomPhoto.user.name);
+    //             setPhotographerUrl(randomPhoto.user.links.html);
+    //             setPhotoUrl(randomPhoto.links.html);
+    //             //get photo location
+    //             const location = await axios.get(`https://api.unsplash.com/photos/${randomPhoto.id}?client_id=${process.env.REACT_APP_UNSPLASH_KEY}`)
+    //             setPhotoLocation(location.data.location.title)
                 
-            }catch(err){
-                console.error(err)
-            }
-        }
-        searchApi(city);
-    }, [city]);
+    //         }catch(err){
+    //             console.error(err)
+    //         }
+    //     }
+    //     searchApi(city);
+    // }, [city]);
 
     let divStyle;
 

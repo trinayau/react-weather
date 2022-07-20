@@ -2,26 +2,26 @@ import { useState, useEffect } from 'react';
 import BounceLoader from 'react-spinners/BounceLoader';
 import { CSSProperties } from 'react';
 
-const Info = ({city, temperature}) => {
+const Info = ({city, weatherData}) => {
 
     const [unit, setUnit] = useState("Metric");
-    const [cityTemp, setCityTemp] = useState(temperature)
+    const [cityTemp, setCityTemp] = useState(weatherData.temperature)
 
     useEffect(() => {
-        setCityTemp(temperature)
+        setCityTemp(weatherData.temperature)
         
-    }, [temperature]);
+    }, [weatherData]);
 
     const showFahrenheit = (e) => {
         e.preventDefault();
         setUnit("Imperial");
-        setCityTemp(Math.round((temperature * 9/5) + 32));
+        setCityTemp(Math.round((weatherData.temperature * 9/5) + 32));
     }
 
     const showCelsius = (e) => {
         e.preventDefault();
         setUnit("Metric");
-        setCityTemp(temperature);
+        setCityTemp(weatherData.temperature);
     }
 
     const override = {
@@ -29,17 +29,20 @@ const Info = ({city, temperature}) => {
         margin: "0 auto",
         borderColor: "red",
       };
-
+      if (weatherData.ready !== false) {
     return ( 
     <div className="info">
         <p className="city">{city}</p>
         <div className="temp-container">
-        <span className="temp">{cityTemp ? cityTemp : <BounceLoader loading={false} color={"#ffffff"} cssOverride={override}/>}</span>
+        <span className="temp">{cityTemp}</span>
         <span className="degrees"><a href="/" onClick={showCelsius}>°C</a> | 
         <a href="/" onClick={showFahrenheit}>°F</a></span>
         
         </div>
     </div> );
+      } else {
+        return <BounceLoader loading={true} color={"#ffffff"} cssOverride={override}/>
+      }
 }
  
 export default Info;

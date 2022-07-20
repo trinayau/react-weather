@@ -6,8 +6,7 @@ import ReactAnimatedWeather from "react-animated-weather";
 import axios from "axios";
 import WeatherIcon from '../WeatherIcon';
 
-const Description = ({description, icon, loaded, localTime, location, setLocalTime, date}) => {
-
+const Description = ({localTime, setLocalTime, date, weatherData}) => {
   const [finalDay, setFinalDay] = useState(null);
 
   var utc = require('dayjs/plugin/utc')
@@ -21,14 +20,14 @@ const Description = ({description, icon, loaded, localTime, location, setLocalTi
     borderColor: "red",
   };
 
-useEffect(() => {
+if (weatherData.ready !== false) {
   const datetime = () => {
     const targetDate = new Date() // Current date/time of user computer
     const timestamp = targetDate.getTime()/1000 + targetDate.getTimezoneOffset() * 60 // Convert to UNIX timestamp
 
     var config = {
       method: 'get',
-      url: `https://maps.googleapis.com/maps/api/timezone/json?location=${location.lat},${location.lon}&timestamp=${timestamp}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`,
+      url: `https://maps.googleapis.com/maps/api/timezone/json?location=${weatherData.coord.lat},${weatherData.coord.lon}&timestamp=${timestamp}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`,
       headers: { }
     };
     
@@ -55,16 +54,14 @@ useEffect(() => {
   }
 
   datetime();
-}, [location, date, setLocalTime])
 
-  if(loaded !== false){
     return ( <>
         <div className="description">
         <div className="descContainer">
         <p>{finalDay}</p>
         <p>{localTime} GMT+1</p>
-        <p className="desc">{description}</p>
-        <WeatherIcon code={icon} size={100}/>
+        <p className="desc">{weatherData.description}</p>
+        <WeatherIcon code={weatherData.icon} size={100}/>
       </div>
         </div>
     </> );

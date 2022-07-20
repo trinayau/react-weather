@@ -99,7 +99,7 @@ button:hover {
   flex-direction: column;
   padding: 15px 5px;
   position: absolute;
-  top: 70%;
+  top: 75%;
   left: 15%;
   right: 15%;
 }
@@ -132,7 +132,7 @@ button:hover {
   text-transform: capitalize;
 }
 
-canvas {
+.descContainer > canvas {
   text-align: center !important;
   display: block;
   margin-top: 5px;
@@ -141,6 +141,7 @@ canvas {
   margin-right: auto;
   width: 4%;
   border-radius: 50%;
+  opacity: .8;
 }
 
 
@@ -154,6 +155,8 @@ canvas {
   font-weight: 900;
   margin: -20px 0 0 0;
 }
+
+
 
 /* unsplash credits*/
 .unsplash-description {
@@ -179,6 +182,17 @@ canvas {
 
 .day-forecast {
   margin: 0 5px;
+}
+
+.day-forecast > canvas{
+  display: block;
+  margin-top: 5px;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15%;
+  border-radius: 50%;
+  opacity: .8;
 }
 
 /* credit */

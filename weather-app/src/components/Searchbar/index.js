@@ -3,15 +3,29 @@ import dayjs from 'dayjs';
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import axios from "axios";
 
-const Searchbar = ({setSubmitValue, city, setTemperature, setDescription, setIcon, setLoaded,setDate, setLocation}) => {
+const Searchbar = ({setSubmitValue, city, setWeatherData}) => {
     const [inputValue, setInputValue] = useState("");
 
     useEffect(() => {
+        function handleResponse(response) {
+            setWeatherData({
+              ready: true,
+              coord: response.data.coord,
+              temperature: Math.round(response.data.main.temp),
+              humidity: response.data.main.humidity,
+              date: response.data.dt * 1000,
+              description: response.data.weather[0].description,
+              icon: response.data.weather[0].icon,
+              wind: response.data.wind.speed,
+              city: response.data.name,
+            });
+          }
+
         const handleCityQuery = async () => {
-            setLoaded(true);
             const apiKey = process.env.REACT_APP_OPENWEATHER_KEY
             let units = "metric";
             let finalCity;
+
             // openweather uses wrong country codes if you search just these cities
             if (city === "venice" | city === "italy") {
                 finalCity = city.concat(", IT");
@@ -25,17 +39,11 @@ const Searchbar = ({setSubmitValue, city, setTemperature, setDescription, setIco
             let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${finalCity}&appid=${apiKey}&units=${units}`;
         
             const response = await axios.get(apiUrl);
-            setTemperature(Math.round(response.data.main.temp));
-            const desc = response.data.weather[0].description;
-            setDescription(desc);
-            setIcon(response.data.weather[0].icon);
-            setLocation({lon: response.data.coord.lon, lat: response.data.coord.lat});
-            setDate(response.data.dt * 1000)
-
+            handleResponse(response);
             }
 
         handleCityQuery(city);
-    }, [city, setTemperature, setDescription, setIcon, setLoaded]);
+    }, [city, setWeatherData]);
 
     function handleInput(e) {
         const newValue = e.target.value;
