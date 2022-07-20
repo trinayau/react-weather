@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import BounceLoader from 'react-spinners/BounceLoader';
+import { CSSProperties } from 'react';
 
 const Info = ({city, temperature}) => {
 
@@ -22,11 +24,17 @@ const Info = ({city, temperature}) => {
         setCityTemp(temperature);
     }
 
+    const override = {
+        display: "block",
+        margin: "0 auto",
+        borderColor: "red",
+      };
+
     return ( 
     <div className="info">
         <p className="city">{city}</p>
         <div className="temp-container">
-        <span className="temp">{cityTemp ? cityTemp : 'loading'}</span>
+        <span className="temp">{cityTemp ? cityTemp : <BounceLoader loading={false} color={"#ffffff"} cssOverride={override}/>}</span>
         <span className="degrees"><a href="/" onClick={showCelsius}>°C</a> | 
         <a href="/" onClick={showFahrenheit}>°F</a></span>
         

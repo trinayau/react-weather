@@ -67,6 +67,7 @@ button {
   transition: all 0.2s ease;
   cursor: pointer;
   background-color: rgb(235,235,235);
+  color: #212121;
 }
 
 
@@ -97,9 +98,11 @@ button:hover {
   display: flex;
   flex-direction: column;
   padding: 15px 5px;
-  font-size: 20px;
+  font-size: 16px;
   position: absolute;
-  top: 60%;
+  top: 62%;
+  left: 15%;
+  right: 15%;
 }
 
 .quote p{
@@ -113,7 +116,7 @@ button:hover {
 
 /* Info styles*/
 .info {
-  margin: 30px 0 10px 0;
+  margin: 30px 0 0 0;
 }
 
 .city {
@@ -127,6 +130,17 @@ button:hover {
   margin: 0;
   font-weight: 300;
   text-transform: capitalize;
+}
+
+.icon {
+  text-align: center !important;
+  display: block;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 4%;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 
@@ -161,7 +175,6 @@ button:hover {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin-top: 25px;
 }
 
 .day-forecast {
@@ -183,6 +196,11 @@ button:hover {
 @media only screen and (max-width: 400px) {
   .credit p {
     display: none;
+  }
+
+  .icon {
+    width: 10%;
+
   }
 
 

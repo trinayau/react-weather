@@ -6,12 +6,14 @@ function App() {
   const [submitValue, setSubmitValue] = useState("London");
   const [temperature, setTemperature] = useState(null);
   const [description, setDescription] = useState(null);
+  const [icon, setIcon] = useState(null);
+  const [loaded, setLoaded] = useState(false);
 
   return (
     <div className="App">
-      <Searchbar setSubmitValue={setSubmitValue} city={submitValue} setTemperature={setTemperature} setDescription={setDescription}/>
-      <Info city={submitValue} temperature={temperature} setTemperature={setTemperature} />
-      <Description description={description}/>
+      <Searchbar setSubmitValue={setSubmitValue} city={submitValue} setTemperature={setTemperature} setDescription={setDescription} setIcon={setIcon} setLoaded={setLoaded}/>
+      <Info city={submitValue} temperature={temperature} setTemperature={setTemperature} loaded={loaded}/>
+      <Description description={description} icon={icon}/>
       <Forecast/>
       <Quote/>
       <Background city={submitValue}/>
