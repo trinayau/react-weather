@@ -57,7 +57,7 @@ This app consumes several APIs:
 - Getting IP banned by OpenWeatherMap because I did 1106 calls per minute
 
 ## Future Features
-- When the quote is a bit longer, it looks funny on different phones and overlaps with forecast. Would like to fix this and make it more responsive
+~~ When the quote is a bit longer, it looks funny on different phones and overlaps with forecast. Would like to fix this and make it more responsive~~ Done!
 - Adding the option to favourite a city and have it show on a different page, maybe using localStorage
 
 ## Final Look
